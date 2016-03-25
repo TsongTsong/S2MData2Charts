@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S2M Data Visualisation</title>
+
+    <script src="lib/js/amcharts_3.19.6.free/amcharts/amcharts.js"></script>
+    <script src="lib/js/amcharts_3.19.6.free/amcharts/xy.js"></script>
+    <script src="lib/js/amcharts_3.19.6.free/amcharts/pie.js"></script>
+    <script src="lib/js/amcharts_3.19.6.free/amcharts/themes/light.js"></script>
+    <script src="lib/js/jquery-2.0.0.min.js"></script>
+
+    <style>
+        #pieChartContainer {
+            width		: 100%;
+            height		: 435px;
+            font-size	: 11px;
+        }
+        .center {
+            text-align  : center;
+        }
+        .container-fluid {
+            text-align  : center;
+        }
+        #xyChartContainer_1 {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+        #xyChartContainer_2 {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+        #xyChartContainer_3 {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+        #xyChartContainer_4 {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+        #xyChartContainer_5 {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var pieChartData = [];
+        var xyChartData = []; //JsonArray
+
+        var pieChart = AmCharts.makeChart( "pieChartContainer", {
+            "type": "pie",
+            "theme": "light",
+            "dataProvider": [],
+            "valueField": "CoverageValue",
+            "titleField": "CoverageType",
+            "outlineAlpha": 0.4,
+            "depth3D": 15,
+            "balloonText": "[[title]]<br><span style='font-size:18px'><b>[[value]]</b> ([[percents]]%)</span>",
+            "angle": 30,
+            "export": {
+                "enabled": true
+            }
+        }, 5000);
+        pieChart.dataProvider = pieChartData;
+        pieChart.write('pieChartContainer');
+
+
+        var xyChart_1 = AmCharts.makeChart("xyChartContainer_1", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Complete Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "PepNumAtoms",
+                "yField": "PepExecutionCompleteTime",
+                "lineColor": "#008000",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_1.dataProvider = xyChartData;
+        xyChart_1.write('xyChartContainer_1');
+
+        var xyChart_2 = AmCharts.makeChart("xyChartContainer_2", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Isomorphism Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "PepNumAtoms",
+                "yField": "PepExecIsomorphismTime",
+                "lineColor": "#FF00FF",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_2.dataProvider = xyChartData;
+        xyChart_2.write('xyChartContainer_2');
+
+        var xyChart_3 = AmCharts.makeChart("xyChartContainer_3", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Isomorphism Strict Matching Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "PepNumAtoms",
+                "yField": "PepExecIsomorStrictMatchTime",
+                "lineColor": "#FF6600",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_3.dataProvider = xyChartData;
+        xyChart_3.write('xyChartContainer_3');
+
+        var xyChart_4 = AmCharts.makeChart("xyChartContainer_4", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Isomorphism Light Matching Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "PepNumAtoms",
+                "yField": "PepExecIsomorLightMatchTime",
+                "lineColor": "#008080",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_4.dataProvider = xyChartData;
+        xyChart_4.write('xyChartContainer_4');
+
+        var xyChart_5 = AmCharts.makeChart("xyChartContainer_5", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Tiling Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "PepNumAtoms",
+                "yField": "PepExecTilingTime",
+                "lineColor": "#9400D3",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_5.dataProvider = xyChartData;
+        xyChart_5.write('xyChartContainer_5');
+    </script>
+
+    <script>
+        $( document ).ready(function() {
+            /*$.getJSON('Data/peptidesExecutionTimes.json')
+                    .done(function (data) {
+                        chartData = data;
+                    });*/
+            $.getJSON('data/peptidesExecutionTimes.json', function (json) {
+                var fullCoverage=0, partCoverage_1=0, partCoverage_2=0;
+                for (var key in json) {
+                    if (json.hasOwnProperty(key)) {
+                        var item = json[key];
+                        xyChartData.push({
+                            PeptideName: item.PeptideName,
+                            PepNumAtoms: item.PepNumAtoms,
+                            PepExecutionCompleteTime: item.PepExecutionCompleteTime,
+                            PepExecIsomorphismTime: item.PepExecIsomorphismTime,
+                            PepExecIsomorStrictMatchTime: item.PepExecIsomorStrictMatchTime,
+                            PepExecIsomorLightMatchTime: item.PepExecIsomorLightMatchTime,
+                            PepExecTilingTime: item.PepExecTilingTime
+
+                        });
+
+                        var ratio = item.PepCoverageRatio;
+                        if(ratio < 0.8){
+                            partCoverage_2 ++;
+                        }
+                        else if(ratio == 1.0){
+                            fullCoverage ++;
+                        }
+                        else{
+                            partCoverage_1 ++;
+                        }
+                    }
+                }
+                pieChartData.push({
+                    CoverageType: "100% Coverage",
+                    CoverageValue: fullCoverage,
+                });
+                pieChartData.push({
+                    CoverageType: "<80% Coverage",
+                    CoverageValue: partCoverage_2
+                });
+                pieChartData.push({
+                    CoverageType: '80%<=Coverage<100%',
+                    CoverageValue: partCoverage_1
+                });
+            });
+
+            jQuery( '.chart-input' ).off().on( 'input change', function() {
+                var property = jQuery( this ).data( 'property' );
+                var target = pieChart;
+                var value = Number( this.value );
+                pieChart.startDuration = 0;
+
+                if ( property == 'innerRadius' ) {
+                    value += "%";
+                }
+
+                target[ property ] = value;
+                pieChart.validateNow();
+            } );
+
+            console.log(pieChartData);
+            console.log(xyChartData);
+            console.log( "ready!" );
+        });
+    </script>
+
+</head>
+<body>
+
+<h1 class="center">Percentage Of Coverage Display</h1>
+<div id="pieChartContainer"></div>
+<div class="container-fluid">
+    <div class="row text-center" style="overflow:hidden;">
+        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+            <label class="text-left">Angle:</label><br />
+            <input class="chart-input" data-property="angle" type="range" min="0" max="60" value="30" step="1"/>
+        </div>
+        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+            <label class="text-left">Depth:</label><br />
+            <input class="chart-input" data-property="depth3D" type="range" min="1" max="25" value="10" step="1"/>
+        </div>
+        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+            <label class="text-left">Inner-Radius:</label><br />
+            <input class="chart-input" data-property="innerRadius" type="range" min="0" max="80" value="0" step="1"/>
+        </div>
+    </div>
+</div>
+<br />
+
+<h1 class="center">Complete Execution Time Display</h1>
+<div id="xyChartContainer_1"></div>
+<br />
+
+<h1 class="center">Isomorphism Execution Time Display</h1>
+<div id="xyChartContainer_2"></div>
+<br />
+
+<h1 class="center">Isomorphism Strict Execution Time Display</h1>
+<div id="xyChartContainer_3"></div>
+<br />
+
+<h1 class="center">Isomorphism Light Execution Time Display</h1>
+<div id="xyChartContainer_4"></div>
+<br />
+
+<h1 class="center">Tiling Execution Time Display</h1>
+<div id="xyChartContainer_5"></div>
+<br />
+
+</body>
+</html>
