@@ -22,27 +22,56 @@
         .container-fluid {
             text-align  : center;
         }
-        #xyChartContainer_1 {
+        #xyChartContainer_1_old {
             width		: 100%;
             height		: 500px;
             font-size	: 11px;
         }
-        #xyChartContainer_2 {
+        #xyChartContainer_1_new {
             width		: 100%;
             height		: 500px;
             font-size	: 11px;
         }
-        #xyChartContainer_3 {
+
+        #xyChartContainer_2_old {
             width		: 100%;
             height		: 500px;
             font-size	: 11px;
         }
-        #xyChartContainer_4 {
+        #xyChartContainer_2_new {
             width		: 100%;
             height		: 500px;
             font-size	: 11px;
         }
-        #xyChartContainer_5 {
+
+        #xyChartContainer_3_old {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+        #xyChartContainer_3_new {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+
+        #xyChartContainer_4_old {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+        #xyChartContainer_4_new {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+
+        #xyChartContainer_5_old {
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+        #xyChartContainer_5_new {
             width		: 100%;
             height		: 500px;
             font-size	: 11px;
@@ -71,7 +100,7 @@
         pieChart.write('pieChartContainer');
 
 
-        var xyChart_1 = AmCharts.makeChart("xyChartContainer_1", {
+        var xyChart_1_old = AmCharts.makeChart("xyChartContainer_1_old", {
             "type": "xy",
             "theme": "light",
             "autoMarginOffset": 20,
@@ -89,11 +118,11 @@
             }],
             "startDuration": 1,
             "graphs": [{
-                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "balloonText": "[[OldPeptideName]]([[x]], [[y]])",
                 "bullet": "triangleUp",
                 "lineAlpha": 0,
-                "xField": "PepNumAtoms",
-                "yField": "PepExecutionCompleteTime",
+                "xField": "OldPepNumAtoms",
+                "yField": "OldPepExecutionCompleteTime",
                 "lineColor": "#008000",
                 "fillAlphas": 0
             }],
@@ -106,10 +135,49 @@
                 "position": "bottom-right"
             }
         }, 5000);
-        xyChart_1.dataProvider = xyChartData;
-        xyChart_1.write('xyChartContainer_1');
+        xyChart_1_old.dataProvider = xyChartData;
+        xyChart_1_old.write('xyChartContainer_1_old');
 
-        var xyChart_2 = AmCharts.makeChart("xyChartContainer_2", {
+        var xyChart_1_new = AmCharts.makeChart("xyChartContainer_1_new", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Complete Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[NewPeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "NewPepNumAtoms",
+                "yField": "NewPepExecutionCompleteTime",
+                "lineColor": "#008000",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_1_new.dataProvider = xyChartData;
+        xyChart_1_new.write('xyChartContainer_1_new');
+
+
+        var xyChart_2_old = AmCharts.makeChart("xyChartContainer_2_old", {
             "type": "xy",
             "theme": "light",
             "autoMarginOffset": 20,
@@ -127,11 +195,11 @@
             }],
             "startDuration": 1,
             "graphs": [{
-                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "balloonText": "[[OldPeptideName]]([[x]], [[y]])",
                 "bullet": "triangleUp",
                 "lineAlpha": 0,
-                "xField": "PepNumAtoms",
-                "yField": "PepExecIsomorphismTime",
+                "xField": "OldPepNumAtoms",
+                "yField": "OldPepExecIsomorphismTime",
                 "lineColor": "#FF00FF",
                 "fillAlphas": 0
             }],
@@ -144,10 +212,49 @@
                 "position": "bottom-right"
             }
         }, 5000);
-        xyChart_2.dataProvider = xyChartData;
-        xyChart_2.write('xyChartContainer_2');
+        xyChart_2_old.dataProvider = xyChartData;
+        xyChart_2_old.write('xyChartContainer_2_old');
 
-        var xyChart_3 = AmCharts.makeChart("xyChartContainer_3", {
+        var xyChart_2_new = AmCharts.makeChart("xyChartContainer_2_new", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Isomorphism Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[NewPeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "NewPepNumAtoms",
+                "yField": "NewPepExecIsomorphismTime",
+                "lineColor": "#FF00FF",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_2_new.dataProvider = xyChartData;
+        xyChart_2_new.write('xyChartContainer_2_new');
+
+
+        var xyChart_3_old = AmCharts.makeChart("xyChartContainer_3_old", {
             "type": "xy",
             "theme": "light",
             "autoMarginOffset": 20,
@@ -165,11 +272,11 @@
             }],
             "startDuration": 1,
             "graphs": [{
-                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "balloonText": "[[OldPeptideName]]([[x]], [[y]])",
                 "bullet": "triangleUp",
                 "lineAlpha": 0,
-                "xField": "PepNumAtoms",
-                "yField": "PepExecIsomorStrictMatchTime",
+                "xField": "OldPepNumAtoms",
+                "yField": "OldPepExecIsomorStrictMatchTime",
                 "lineColor": "#FF6600",
                 "fillAlphas": 0
             }],
@@ -182,10 +289,49 @@
                 "position": "bottom-right"
             }
         }, 5000);
-        xyChart_3.dataProvider = xyChartData;
-        xyChart_3.write('xyChartContainer_3');
+        xyChart_3_old.dataProvider = xyChartData;
+        xyChart_3_old.write('xyChartContainer_3_old');
 
-        var xyChart_4 = AmCharts.makeChart("xyChartContainer_4", {
+        var xyChart_3_new = AmCharts.makeChart("xyChartContainer_3_new", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Isomorphism Strict Matching Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[NewPeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "NewPepNumAtoms",
+                "yField": "NewPepExecIsomorStrictMatchTime",
+                "lineColor": "#FF6600",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_3_new.dataProvider = xyChartData;
+        xyChart_3_new.write('xyChartContainer_3_new');
+
+
+        var xyChart_4_old = AmCharts.makeChart("xyChartContainer_4_old", {
             "type": "xy",
             "theme": "light",
             "autoMarginOffset": 20,
@@ -203,11 +349,11 @@
             }],
             "startDuration": 1,
             "graphs": [{
-                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "balloonText": "[[OldPeptideName]]([[x]], [[y]])",
                 "bullet": "triangleUp",
                 "lineAlpha": 0,
-                "xField": "PepNumAtoms",
-                "yField": "PepExecIsomorLightMatchTime",
+                "xField": "OldPepNumAtoms",
+                "yField": "OldPepExecIsomorLightMatchTime",
                 "lineColor": "#008080",
                 "fillAlphas": 0
             }],
@@ -220,10 +366,49 @@
                 "position": "bottom-right"
             }
         }, 5000);
-        xyChart_4.dataProvider = xyChartData;
-        xyChart_4.write('xyChartContainer_4');
+        xyChart_4_old.dataProvider = xyChartData;
+        xyChart_4_old.write('xyChartContainer_4_old');
 
-        var xyChart_5 = AmCharts.makeChart("xyChartContainer_5", {
+        var xyChart_4_new = AmCharts.makeChart("xyChartContainer_4_new", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Isomorphism Light Matching Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[NewPeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "NewPepNumAtoms",
+                "yField": "NewPepExecIsomorLightMatchTime",
+                "lineColor": "#008080",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_4_new.dataProvider = xyChartData;
+        xyChart_4_new.write('xyChartContainer_4_new');
+
+
+        var xyChart_5_old = AmCharts.makeChart("xyChartContainer_5_old", {
             "type": "xy",
             "theme": "light",
             "autoMarginOffset": 20,
@@ -241,11 +426,11 @@
             }],
             "startDuration": 1,
             "graphs": [{
-                "balloonText": "[[PeptideName]]([[x]], [[y]])",
+                "balloonText": "[[OldPeptideName]]([[x]], [[y]])",
                 "bullet": "triangleUp",
                 "lineAlpha": 0,
-                "xField": "PepNumAtoms",
-                "yField": "PepExecTilingTime",
+                "xField": "OldPepNumAtoms",
+                "yField": "OldPepExecTilingTime",
                 "lineColor": "#9400D3",
                 "fillAlphas": 0
             }],
@@ -258,8 +443,46 @@
                 "position": "bottom-right"
             }
         }, 5000);
-        xyChart_5.dataProvider = xyChartData;
-        xyChart_5.write('xyChartContainer_5');
+        xyChart_5_old.dataProvider = xyChartData;
+        xyChart_5_old.write('xyChartContainer_5_old');
+
+        var xyChart_5_new = AmCharts.makeChart("xyChartContainer_5_new", {
+            "type": "xy",
+            "theme": "light",
+            "autoMarginOffset": 20,
+            "dataProvider": [],
+            "valueAxes": [{
+                "position": "bottom",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "title": "Number Of Atoms"
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "position": "left",
+                "title": "Tiling Time"
+            }],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "[[NewPeptideName]]([[x]], [[y]])",
+                "bullet": "triangleUp",
+                "lineAlpha": 0,
+                "xField": "NewPepNumAtoms",
+                "yField": "NewPepExecTilingTime",
+                "lineColor": "#9400D3",
+                "fillAlphas": 0
+            }],
+            "marginLeft": 64,
+            "marginBottom": 60,
+            "chartScrollbar": {},
+            "chartCursor": {},
+            "export": {
+                "enabled": true,
+                "position": "bottom-right"
+            }
+        }, 5000);
+        xyChart_5_new.dataProvider = xyChartData;
+        xyChart_5_new.write('xyChartContainer_5_new');
     </script>
 
     <script>
@@ -268,19 +491,19 @@
                     .done(function (data) {
                         chartData = data;
                     });*/
-            $.getJSON('data/peptidesExecutionTimes.json', function (json) {
+            $.getJSON('data/oldPeptidesExecutionTimes.json', function (json) {
                 var fullCoverage=0, partCoverage_1=0, partCoverage_2=0;
                 for (var key in json) {
                     if (json.hasOwnProperty(key)) {
                         var item = json[key];
                         xyChartData.push({
-                            PeptideName: item.PeptideName,
-                            PepNumAtoms: item.PepNumAtoms,
-                            PepExecutionCompleteTime: item.PepExecutionCompleteTime,
-                            PepExecIsomorphismTime: item.PepExecIsomorphismTime,
-                            PepExecIsomorStrictMatchTime: item.PepExecIsomorStrictMatchTime,
-                            PepExecIsomorLightMatchTime: item.PepExecIsomorLightMatchTime,
-                            PepExecTilingTime: item.PepExecTilingTime
+                            OldPeptideName: item.PeptideName,
+                            OldPepNumAtoms: item.PepNumAtoms,
+                            OldPepExecutionCompleteTime: item.PepExecutionCompleteTime,
+                            OldPepExecIsomorphismTime: item.PepExecIsomorphismTime,
+                            OldPepExecIsomorStrictMatchTime: item.PepExecIsomorStrictMatchTime,
+                            OldPepExecIsomorLightMatchTime: item.PepExecIsomorLightMatchTime,
+                            OldPepExecTilingTime: item.PepExecTilingTime
 
                         });
 
@@ -298,7 +521,7 @@
                 }
                 pieChartData.push({
                     CoverageType: "100% Coverage",
-                    CoverageValue: fullCoverage,
+                    CoverageValue: fullCoverage
                 });
                 pieChartData.push({
                     CoverageType: "<80% Coverage",
@@ -308,6 +531,48 @@
                     CoverageType: '80%<=Coverage<100%',
                     CoverageValue: partCoverage_1
                 });
+            });
+
+            $.getJSON('data/newPeptidesExecutionTimes.json', function (json) {
+               // var fullCoverage=0, partCoverage_1=0, partCoverage_2=0;
+                for (var key in json) {
+                    if (json.hasOwnProperty(key)) {
+                        var item = json[key];
+                        xyChartData.push({
+                            NewPeptideName: item.PeptideName,
+                            NewPepNumAtoms: item.PepNumAtoms,
+                            NewPepExecutionCompleteTime: item.PepExecutionCompleteTime,
+                            NewPepExecIsomorphismTime: item.PepExecIsomorphismTime,
+                            NewPepExecIsomorStrictMatchTime: item.PepExecIsomorStrictMatchTime,
+                            NewPepExecIsomorLightMatchTime: item.PepExecIsomorLightMatchTime,
+                            NewPepExecTilingTime: item.PepExecTilingTime
+
+                        });
+
+                        /*var ratio = item.PepCoverageRatio;
+                        if(ratio < 0.8){
+                            partCoverage_2 ++;
+                        }
+                        else if(ratio == 1.0){
+                            fullCoverage ++;
+                        }
+                        else{
+                            partCoverage_1 ++;
+                        }*/
+                    }
+                }
+                /*pieChartData.push({
+                    CoverageType: "100% Coverage",
+                    CoverageValue: fullCoverage
+                });
+                pieChartData.push({
+                    CoverageType: "<80% Coverage",
+                    CoverageValue: partCoverage_2
+                });
+                pieChartData.push({
+                    CoverageType: '80%<=Coverage<100%',
+                    CoverageValue: partCoverage_1
+                });*/
             });
 
             jQuery( '.chart-input' ).off().on( 'input change', function() {
@@ -333,7 +598,7 @@
 </head>
 <body>
 
-<h1 class="center">Percentage Of Coverage Display</h1>
+<h2 class="center">Percentage Of Coverage Display</h2>
 <div id="pieChartContainer"></div>
 <div class="container-fluid">
     <div class="row text-center" style="overflow:hidden;">
@@ -353,24 +618,40 @@
 </div>
 <br />
 
-<h1 class="center">Complete Execution Time Display</h1>
-<div id="xyChartContainer_1"></div>
+<h1 class="center">Old Execution Time &nbsp&nbsp vs &nbsp&nbsp New Average Execution Time</h1>
+<h2 class="center">Old Total Execution Time Display</h2>
+<div id="xyChartContainer_1_old"></div>
+<br />
+<h2 class="center">New Total Average Execution Time Display</h2>
+<div id="xyChartContainer_1_new"></div>
 <br />
 
-<h1 class="center">Isomorphism Execution Time Display</h1>
-<div id="xyChartContainer_2"></div>
+<h2 class="center">Old Isomorphism Execution Time Display</h2>
+<div id="xyChartContainer_2_old"></div>
+<br />
+<h2 class="center">New Isomorphism Average Execution Time Display</h2>
+<div id="xyChartContainer_2_new"></div>
 <br />
 
-<h1 class="center">Isomorphism Strict Execution Time Display</h1>
-<div id="xyChartContainer_3"></div>
+<h2 class="center">Old Isomorphism Strict Execution Time Display</h2>
+<div id="xyChartContainer_3_old"></div>
+<br />
+<h2 class="center">New Isomorphism Average Strict Execution Time Display</h2>
+<div id="xyChartContainer_3_new"></div>
 <br />
 
-<h1 class="center">Isomorphism Light Execution Time Display</h1>
-<div id="xyChartContainer_4"></div>
+<h2 class="center">Old Isomorphism Light Execution Time Display</h2>
+<div id="xyChartContainer_4_old"></div>
+<br />
+<h2 class="center">New Isomorphism Average Light Execution Time Display</h2>
+<div id="xyChartContainer_4_new"></div>
 <br />
 
-<h1 class="center">Tiling Execution Time Display</h1>
-<div id="xyChartContainer_5"></div>
+<h2 class="center">Old Tiling Execution Time Display</h2>
+<div id="xyChartContainer_5_old"></div>
+<br />
+<h2 class="center">New Tiling Average Execution Time Display</h2>
+<div id="xyChartContainer_5_new"></div>
 <br />
 
 </body>
